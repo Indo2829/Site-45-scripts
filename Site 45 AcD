@@ -1,5 +1,5 @@
 ; ====== Main Script ======
-global ScriptVersion := "1.0.0"
+global ScriptVersion := "1.0.1"
 global userInput := ""
 global lastSkin := ""
 global morphLibrary := []
@@ -319,7 +319,14 @@ Numpad6::
     PasteCommand("run " "playsound " . userInput . " 5177808764 no 2 100" " & " "delay" " 4.6 " "playsound " . userInput . " 134147361 loop 2 100")
     BlockInput, Off
 return
-Numpad5::PlayCmd("playsound " . userInput . " 134147361 loop 3 200")
+Numpad5::
+    if (userInput = "") {
+        MsgBox, Please enter a username first by pressing \
+        return
+    }
+    BlockInput, On
+    PasteCommand("playsound " . userInput . " 134147361 loop 3 200")
+    BlockInput, Off
 Numpad4::
     if (userInput = "") {
         MsgBox, Please enter a username first by pressing \
