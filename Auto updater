@@ -1,3 +1,0 @@
-; ===== Stub launcher =====
-Run, %A_ScriptDir%\Updater.ahk
-ExitApp
